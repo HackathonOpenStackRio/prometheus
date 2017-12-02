@@ -12,6 +12,11 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
-        //
-    }
+        $faker = resolve('Faker');
+        \DB::table('students')->insert([
+           'registration' => uniqid(),
+           'name'         => $faker->name,
+           'gender'       => 'F'
+        ]);
+    }   
 }

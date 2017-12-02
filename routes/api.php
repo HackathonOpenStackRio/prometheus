@@ -22,6 +22,6 @@ Route::namespace('Api')->group(function () {
     //Controllers Within The "App\Http\Controllers\Admin" Namespace
     Route::resource('student', 'StudentController', ['only' => ['index', 'show']] );
     Route::resource('teacher', 'TeacherController', ['only' => ['index', 'show']] );
+    Route::resource('classRoom', 'ClassRoomController', ['only' => ['index', 'show']] );
     
 });
-Route::get('api/students', 'Api\StudentController@index');
