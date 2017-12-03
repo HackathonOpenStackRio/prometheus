@@ -40,6 +40,7 @@ class UserController
         if ($user->isNotEmpty()) {
             return JWTParser::encode($user);
         }
-        return abort(403, 'Unauthorized action.');
+        http_response_code(403);
+        return json_encode(['msg' => 'Login ou senha inválidos', 'status' => '403']);
     }
 }
