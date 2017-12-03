@@ -20,6 +20,6 @@ class ValidateApiLoginTest extends TestCase
        $user->login = $faker->userName;
        $user->password = $faker->password;
        $user->save();
-       $result = $this->call('POST', ['login' => $user->login, 'password' => $user->password]);
+       $result = $this->call('POST','api/login', ['login' => $user->login, 'password' => $user->password]);
     }
 }

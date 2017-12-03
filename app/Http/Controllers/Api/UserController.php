@@ -16,15 +16,14 @@ class UserController
 
     public function login(Request $request)
     {
-
        $user = $this->userRepositoryEloquent->findWhere(
             [
                'login' => $request->get('login'),
                'password' => $request->get('password')
             ]);
-        if ($userExists)
-        {
+        if ($userExists) {
             return JWTParser::encode($user);
-        }   
+        }
+        return abort(403, 'Unauthorized action.');
     }
 }
