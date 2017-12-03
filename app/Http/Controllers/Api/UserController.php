@@ -37,7 +37,7 @@ class UserController
                'login' => $request->get('login'),
                'password' => $request->get('password')
             ]);
-        if ($user) {
+        if ($user->isEmpety()) {
             return JWTParser::encode($user);
         }
         return abort(403, 'Unauthorized action.');
