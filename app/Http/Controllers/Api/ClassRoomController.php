@@ -18,6 +18,18 @@ class ClassRoomController extends Controller
         $this->classRoomRepository = $classRoomRepository;
     }
 
+    /**
+    * @api {get} /api/classRoom Request User information
+    * @apiName ClassRoomShow
+    * @apiGroup ClassRoom
+    *    
+    * @apiSuccess {Json} ClassRoom Object in Json
+    */
+    /**
+    *   Return classRoom data
+    *   @param {Integer} $id Entity Id
+    *   @return String (Json)
+    */
     public function getByIdEntity($idEntity)
     {
         $classRooms = $this->classRoomRepository->findWhere(['entity_id' => $idEntity]);

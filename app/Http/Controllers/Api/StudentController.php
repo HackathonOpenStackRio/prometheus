@@ -18,21 +18,39 @@ class StudentController extends Controller
         $this->studentRepository = $studentRepository;
     }
 
+    /**
+    * @api {get} /api/student Request User information
+    * @apiName StudentIndex
+    * @apiGroup Student
+    *    
+    * @apiSuccess {Json} Array with all students in siystem
+    */
+    /**
+    *   Return all student
+    *   @param Illuminate\Http\Request $request
+    *   @return String (Json)
+    */
     public function index()
     {
         $students = $this->studentRepository->all();
         return response()->json($students);
     }
 
+    /**
+    * @api {get} /api/student Request User information
+    * @apiName StudentShow
+    * @apiGroup Student
+    *    
+    * @apiSuccess {Json} Student Object in Json
+    */
+    /**
+    *   Return student data
+    *   @param {Integer} $id Student Id
+    *   @return String (Json)
+    */
     public function show($id)
     {
         $result = $this->studentRepository->find($id);
         return response()->json($result);
-    }
-
-    public function getObservationByTeacher($idTeacher)
-    {
-        //$student = $this->studentRepository->with('Class', )
-    }
-
+    }    
 }
