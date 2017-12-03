@@ -29,5 +29,4 @@ class TeacherController extends Controller
         $result = $this->teacherRepository->find($id);
         return response()->json($result);
     }
-
 }

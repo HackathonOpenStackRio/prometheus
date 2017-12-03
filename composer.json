@@ -21,7 +21,8 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "Seeders\\": "app/seeds"
+            "Seeders\\": "app/seeds",
+            "Interface\\": "app/Interfaces"
         }
     },
     "autoload-dev": {

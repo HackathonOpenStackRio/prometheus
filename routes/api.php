@@ -23,5 +23,5 @@ Route::namespace('Api')->group(function () {
     Route::resource('student', 'StudentController', ['only' => ['index', 'show']] );
     Route::resource('teacher', 'TeacherController', ['only' => ['index', 'show']] );
     Route::resource('classRoom', 'ClassRoomController', ['only' => ['index', 'show']] );
-    
+    Route::post('login', 'UserController@login');
 });
