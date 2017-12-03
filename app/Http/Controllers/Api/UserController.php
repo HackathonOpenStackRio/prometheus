@@ -15,8 +15,8 @@ class UserController
     }
 
     public function login(Request $request)
-    {
-       $user = $this->userRepositoryEloquent->findWhere(
+    {        
+        $user = $this->userRepositoryEloquent->findWhere(
             [
                'login' => $request->get('login'),
                'password' => $request->get('password')
