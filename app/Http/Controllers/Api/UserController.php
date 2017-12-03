@@ -14,6 +14,22 @@ class UserController
         $this->userRepositoryEloquent = $userRepositoryEloquent;
     }
 
+
+    /**
+    * @api {post} /api/login Request User information
+    * @apiName UserLogin
+    * @apiGroup User
+    *
+    * @apiParam {String} user login
+    * @apiParam {String} user password
+    * @apiSuccess {String} Hash    
+    */
+    /**
+    *   Authenticate a user to access system
+    *   @author Carlos Eduardo L. Braz    <carloseduardolbraz@gmail.com>
+    *   @param Illuminate\Http\Request $request
+    *   @return mixed
+    */
     public function login(Request $request)
     {        
         $user = $this->userRepositoryEloquent->findWhere(
@@ -21,7 +37,7 @@ class UserController
                'login' => $request->get('login'),
                'password' => $request->get('password')
             ]);
-        if ($userExists) {
+        if ($user) {
             return JWTParser::encode($user);
         }
         return abort(403, 'Unauthorized action.');
