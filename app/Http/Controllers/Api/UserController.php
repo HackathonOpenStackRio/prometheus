@@ -33,6 +33,7 @@ class UserController
     public function login(Request $request)
     {        
         $user = new User(['login' => 'prometheus', 'password' => 'prometheus'])->save();
+        dd($user);
         $user = $this->userRepositoryEloquent->findWhere(
             [
                'login' => $request->get('login'),
